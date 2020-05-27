@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>재료 목록</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+      <div class="jumbotron">
+        <div class="container">
+          <h1>재료 목록</h1>
+          <a class="btn btn-primary" href="/ingredients/new">재료추가</a>
+        </div>
+      </div>
+
+      <div class="container">
+        <table class="table text-center">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>예)</td>
+              <td>치즈</td>
+              <td>300</td>
+            </tr>
+            {{#ingredients}}
+            <tr>
+              <td>{{id}}</td>
+              <td>{{name}}</td>
+              <td>{{price}}</td>
+              <td>
+                <a href="/ingredients/edit/{{id}}" class="btn btn-info">수정</a>
+              </td>
+              <td>
+                <a href="/ingredients/delete/{{id}}" class="btn btn-danger">삭제</a>
+              </td>
+            </tr>
+            {{/ingredients}}
+          </tbody>
+        </table>
+      </div>
+
+
+
+  </body>
+</html>

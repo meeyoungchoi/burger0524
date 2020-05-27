@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Slf4j
@@ -27,6 +28,21 @@ public class BurgerController {
         model.addAttribute("burgerList", burgerList);
         return "burgers/index";
     }
+
+    @GetMapping("/burgers/init")
+    public String init() {
+        List<Burger> burgerList = new ArrayList<>();
+        burgerList.add(new Burger(null, "새우버거", 3000));
+        burgerList.add(new Burger(null, "치킨버거", 3500));
+        burgerList.add(new Burger(null, "불고기버거", 3500));
+
+        burgerRepository.saveAll(burgerList);
+
+
+
+        return "redirect:/";
+    }
+
 
     @GetMapping("/burgers/new")
     public String newBurger() {
